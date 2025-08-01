@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cho bé Vân</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="video-container">
+      <video id="video" autoplay muted loop playsinline>
+        <source src="Valentine Letter.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="animated-text">
+      <span></span>
+    </div>
+  </div>
+<script>
+    const texts = [
+      "Tí Nị iuu uiii ❤️",
+      "Cũng được một khoảng thời gian hai đứa mình biết nhau rùi",
+      "Khoảng thời gian này a rất vui",
+      "Nên là a rất cảm ơn vì bé đã cho a cơ hội được ở bên bé",
+      "Và a cũng muốn nói là",
+      "Cho anh được làm người yêu thương bé, vui buồn cùng bé và là người yêu của bé nhaaa❤️"
+    ];
+
+
+     const videos = [
+      "Valentine Letter.mp4",
+      "day.mp4",
+      "happy.mp4",
+      "Love You.mp4",
+      "teddy-bear.mp4",
+      "Valentine Propose.mp4"
+    ];
+
+    const span = document.querySelector(".animated-text span");
+    const video = document.getElementById("video");
+    const source = video.querySelector("source");
+
+    let index = 0;
+
+    function changeTextAndVideo() {
+    span.textContent = texts[index];
+    source.src = videos[index];
+    video.load();
+
+    index++;
+    if (index < texts.length) {
+      setTimeout(changeTextAndVideo, 4000); // Wait 4 seconds, then next
+    }
+  }
+
+  // Start the sequence
+    changeTextAndVideo();
+</script>
+</body>
+</html>
